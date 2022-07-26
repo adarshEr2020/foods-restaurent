@@ -20,7 +20,7 @@ export default function FoodItems() {
         console.log(name, price, image,url);
         return (
           <article key={index} className="food-item">
-            <img src={url} width="300px" alt={image.jpeg} />
+            <img src={url} width="200px" alt={image.jpeg} />
             <h2>{name}</h2>
             <p>{price}</p>
             <div>

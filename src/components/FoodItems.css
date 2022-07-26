@@ -12,9 +12,10 @@
   padding: 2%;
 }
 .food-item {
-    background-color:whitesmoke;
-    border: 1px solid gray;
-    width: 300px;
+  background-color: whitesmoke;
+  border: 1px solid gainsboro;
+  width: 300px;
+  margin-bottom: 2rem;
 }
 .btn {
   border: none;

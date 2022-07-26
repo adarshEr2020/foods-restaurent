@@ -11,6 +11,24 @@
   text-align: center;
   /* font-size: 3rem; */
   color: #2d2d37;
-  border: 1px solid gray;
+  border: 1px solid lightgray;
+  background-color: whitesmoke;
+  height: 250px;
   width: 400px;
+}
+
+.input-box {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.submit-btn {
+  background-color: #3f51b5;
+  height: 1.8rem;
+  border: none;
+  border-radius: 0.23rem;
+  margin-top: 2rem;
+  color: whitesmoke;
+  margin: 0.125rem;
+  width: 7rem;
+  cursor: pointer;
 }

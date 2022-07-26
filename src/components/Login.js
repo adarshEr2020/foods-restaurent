@@ -33,7 +33,7 @@ export default function Login() {
       <div className="form-container">
         <form className="form-main" onSubmit={loginUser}>
           <h2>Login for food order food</h2>
-          <div>
+          <div className="input-box">
             <label>User Name:</label>
             <input
               type="text"
@@ -42,7 +42,7 @@ export default function Login() {
               onChange={(e) => handleChange(e)}
             />
           </div>
-          <div>
+          <div className="input-box">
             <label>Password:</label>
             <input
               type="password"
@@ -51,7 +51,7 @@ export default function Login() {
               onChange={(e) => handleChange(e)}
             />
           </div>
-          <input type="submit" value="Log In" data-test="submit" />
+          <input className="submit-btn" type="submit" value="Log In" data-test="submit" />
         </form>
       </div>
     </>

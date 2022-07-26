@@ -6,7 +6,7 @@
   font-size: 3rem;
   color: #2d2d37;
 }
-.btn {
+.menu-btn {
   background-color: #3f51b5;
   height: 1.8rem;
   border: none;
@@ -14,4 +14,5 @@
   margin-top: 2rem;
   color: whitesmoke;
   margin: 0.125rem;
+  width: 7rem;
 }

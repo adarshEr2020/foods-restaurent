@@ -15,7 +15,7 @@ export default function Main() {
           Welcome to Food's <br />
           Kitchen
         </p>
-        <button className="btn" onClick={gotoLogin}>
+        <button className="menu-btn" onClick={gotoLogin}>
           GO TO MENU
         </button>
       </div>
