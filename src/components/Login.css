@@ -1,0 +1,16 @@
+.form-container {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-main {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin-top: 10rem;
+  text-align: center;
+  /* font-size: 3rem; */
+  color: #2d2d37;
+  border: 1px solid gray;
+  width: 400px;
+}

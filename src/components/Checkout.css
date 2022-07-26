@@ -1,0 +1,17 @@
+.checkout-container {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin-top: 10rem;
+}
+.checkout-main{
+    background-color: whitesmoke;
+    text-align: center;
+    width: 400px;
+}
+
+h1{
+   font-weight:200;
+}
+ 
+

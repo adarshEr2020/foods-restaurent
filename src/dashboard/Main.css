@@ -1,0 +1,17 @@
+.home-ttile-container {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin-top: 10rem;
+  text-align: center;
+  font-size: 3rem;
+  color: #2d2d37;
+}
+.btn {
+  background-color: #3f51b5;
+  height: 1.8rem;
+  border: none;
+  border-radius: 0.23rem;
+  margin-top: 2rem;
+  color: whitesmoke;
+  margin: 0.125rem;
+}

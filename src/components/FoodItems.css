@@ -1,0 +1,32 @@
+.food-items {
+  /* border: 1px solid gray; */
+  /* background-color:whitesmoke; */
+  display: flex;
+  justify-content: space-between;
+  justify-items: auto;
+  flex-wrap: wrap;
+  width: 80%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 10%;
+  padding: 2%;
+}
+.food-item {
+    background-color:whitesmoke;
+    border: 1px solid gray;
+    width: 300px;
+}
+.btn {
+  border: none;
+  margin: 0.25rem;
+  width: 2.5rem;
+  height: 1.5rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+.pluse {
+  background-color: #3f51b5;
+}
+.minus {
+  background-color: #babbc3;
+}
