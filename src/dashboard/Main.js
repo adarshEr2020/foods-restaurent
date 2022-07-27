@@ -11,7 +11,7 @@ export default function Main() {
   return (
     <div>
       <div className="home-title-container">
-        <p>
+        <p className="title">
           Welcome to Food's <br />
           Kitchen
         </p>

@@ -16,6 +16,7 @@
   border: 1px solid gainsboro;
   width: 300px;
   margin-bottom: 2rem;
+  padding-top: 1rem;
 }
 .btn {
   border: none;
@@ -47,5 +48,5 @@
 }
 .btn-contain {
   text-align: left;
-  margin-left: 1.5rem;
+  margin-left: 1.3rem;
 }

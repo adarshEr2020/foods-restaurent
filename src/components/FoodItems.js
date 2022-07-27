@@ -12,15 +12,21 @@ export default function FoodItems() {
     handleSubtractQuantity,
     handleOpen,
     handleClose,
+    viewCartModel,
+   
   } = useGlobalContext();
 
   return (
     <>
       <div className="food-items">
-        {allFoodItem.map((food, index) => {
-          const { name, price, image, url } = food;
+        {allFoodItem.map((food) => {
+          const { id, name, price, image, url } = food;
           return (
-            <article key={index} className="food-item" onClick={handleOpen}>
+            <article
+              key={id}
+              className="food-item"
+              onClick={(e) => viewCartModel(e,id)}
+            >
               <img src={url} width="200px" height="120px" alt={image.jpeg} />
               <h2 className="foodname">{name}</h2>
               <p className="foodprice">{price}</p>

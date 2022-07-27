@@ -3,21 +3,38 @@ import data from "../data/foods.json";
 import { imageURl } from "../data/imageURL";
 
 const AppContext = React.createContext();
-const allFoodItem = data.map((foodItem, index) => {
-  return { ...foodItem, url: imageURl[index] };
-});
-const AppProvider = ({ children }) => {
-  const [quantity, setQuantity] = useState(0);
-  const [open, setOpen] = React.useState(false);
 
+const AppProvider = ({ children }) => {
+  // eslint-disable-next-line
+  const allFoodItem = data.map((foodItem, index) => {
+    return { ...foodItem, url: imageURl[index] };
+  });
+  const [cart, setCart] = useState([]);
+  const [quantity, setQuantity] = useState(0);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  console.log(cart);
+
   const handleAddQuantity = () => {
-    setQuantity(quantity + 1);
+    if (quantity >= 0) {
+      setQuantity(quantity + 1);
+    }
   };
   const handleSubtractQuantity = () => {
-    setQuantity(quantity - 1);
+    if (quantity >= 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const viewCartModel = (e, id) => {
+    e.preventDefault();
+    let foodItems = allFoodItem.filter((item) => {
+      return item.id === id;
+    });
+    setCart([...cart, foodItems]);
+    handleOpen();
   };
 
   return (
@@ -31,6 +48,8 @@ const AppProvider = ({ children }) => {
         setQuantity,
         handleOpen,
         handleClose,
+        viewCartModel,
+        cart,
       }}
     >
       {children}

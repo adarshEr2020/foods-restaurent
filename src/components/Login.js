@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 
 export default function Login() {
-  // const [isLogin,setIsLogin] = useState(false)
+  const [isLogin, setIsLogin] = useState(false);
   const [user, setUser] = useState({
     name: "",
     password: "",
@@ -18,9 +18,9 @@ export default function Login() {
   const loginUser = (e) => {
     e.preventDefault();
     if (user.name !== "" && user.password !== "") {
-      console.log("success");
+      setIsLogin(false);
     } else {
-      console.log("enter id password");
+      setIsLogin(true);
     }
   };
 
@@ -28,7 +28,7 @@ export default function Login() {
     <>
       <div className="form-container">
         <form className="form-main" onSubmit={loginUser}>
-          <h2>Login for food order from the restaurent </h2>
+          <h2>Login for order food </h2>
           <div className="input-box">
             <label>User Name:</label>
             <input
@@ -47,9 +47,15 @@ export default function Login() {
               onChange={(e) => handleChange(e)}
             />
           </div>
-          <input className="submit-btn" type="submit" value="LOGIN" data-test="submit" />
+          <input
+            className="submit-btn"
+            type="submit"
+            value="LOGIN"
+            data-test="submit"
+          />
         </form>
       </div>
+      {isLogin && <p id="message">Enter User Name Password</p>}
     </>
   );
 }
