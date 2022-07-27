@@ -1,0 +1,60 @@
+.modal {
+  position: absolute;
+  top: 40%;
+  left: 32%;
+  transform: "translate(-50%, -50%)";
+  width: 500px;
+  min-height: 100px;
+  border: "2px solid #000";
+}
+.food-item-summ {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 1rem;
+  margin-right: 4rem;
+  height: 2.2rem;
+}
+.modal-title {
+  text-align: left !important;
+  margin: 1rem;
+}
+.save-checkout-btn {
+  text-align: right !important;
+  margin: 1rem;
+}
+
+.all-btn {
+  width: 5rem;
+  display: flex;
+  justify-content: space-around;
+  color: aliceblue;
+}
+
+#food-text {
+  font-size: 1rem;
+}
+
+.food-total {
+  text-align: left;
+  font-size: 1rem;
+  margin-left: 1rem;
+}
+.btn-save-checkout {
+  margin-right: 1rem;
+  border: none;
+  margin: 0.25rem;
+  height: 1.5rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+.checkout {
+  background-color: #3f51b5;
+  width: 10rem;
+  color: aliceblue;
+}
+.save {
+  background-color: white;
+  width: 5rem;
+  color: #4554c0;
+}

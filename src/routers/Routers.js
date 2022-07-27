@@ -10,11 +10,11 @@ export default function Routers() {
   return (
     <BrowserRouter>
       <Navbar />
-      {/* <Login/> */}
       <Routes>
-        <Route exect path="/" element={<Main />} />
-        <Route path="menu" element={<FoodItems />} />
-        <Route path="checkout" element={<Checkout />} />
+        <Route exect path="/" element={<Login />} />
+        <Route path="/main" element={<Main />} />
+        <Route path="/menu" element={<FoodItems />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </BrowserRouter>
   );

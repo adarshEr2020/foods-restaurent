@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+import { Link } from "react-router-dom";
 import "./Main.css";
 import { useNavigate } from "react-router-dom";
 export default function Main() {
@@ -10,14 +10,16 @@ export default function Main() {
 
   return (
     <div>
-      <div className="home-ttile-container">
+      <div className="home-title-container">
         <p>
           Welcome to Food's <br />
           Kitchen
         </p>
+        <Link to="/menu">
         <button className="menu-btn" onClick={gotoLogin}>
           GO TO MENU
         </button>
+        </Link>
       </div>
     </div>
   );

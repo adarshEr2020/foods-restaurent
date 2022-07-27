@@ -1,12 +1,28 @@
+
 .navbar {
   background-color: #3f51b5;
   height: 3rem;
   padding: 0.225rem;
   display: flex;
+  justify-content: space-between;
+  justify-items: baseline;
+  align-items: center;
+}
+.navbar-title {
+  display: flex;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  justify-content: center;
   align-items: center;
 }
 
 .logo-text {
   margin-left: 0.5rem;
   color: whitesmoke;
+}
+
+.cart-quantity {
+  color: #ffffff;
+  font-size: 1rem;
+  margin-left: 0.25rem;
 }

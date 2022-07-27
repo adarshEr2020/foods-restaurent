@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Navbar from "./Navbar";
 import "./Login.css";
 
 export default function Login() {
-  const navigate = useNavigate();
+  // const [isLogin,setIsLogin] = useState(false)
   const [user, setUser] = useState({
     name: "",
     password: "",
@@ -20,7 +18,6 @@ export default function Login() {
   const loginUser = (e) => {
     e.preventDefault();
     if (user.name !== "" && user.password !== "") {
-      navigate.push("/menu");
       console.log("success");
     } else {
       console.log("enter id password");
@@ -29,10 +26,9 @@ export default function Login() {
 
   return (
     <>
-      {/* <Navbar /> */}
       <div className="form-container">
         <form className="form-main" onSubmit={loginUser}>
-          <h2>Login for food order food</h2>
+          <h2>Login for food order from the restaurent </h2>
           <div className="input-box">
             <label>User Name:</label>
             <input
@@ -51,7 +47,7 @@ export default function Login() {
               onChange={(e) => handleChange(e)}
             />
           </div>
-          <input className="submit-btn" type="submit" value="Log In" data-test="submit" />
+          <input className="submit-btn" type="submit" value="LOGIN" data-test="submit" />
         </form>
       </div>
     </>
