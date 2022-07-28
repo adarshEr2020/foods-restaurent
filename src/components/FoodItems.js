@@ -6,6 +6,7 @@ import { useGlobalContext } from "../context/context";
 
 export default function FoodItems() {
   const {
+    cart,
     allFoodItem,
     open,
     handleAddQuantity,
@@ -13,9 +14,13 @@ export default function FoodItems() {
     handleOpen,
     handleClose,
     viewCartModel,
-   
   } = useGlobalContext();
 
+  // const addToCart = (id) => {
+  //   const cartItem = allFoodItem.filter(
+  //     (foodItem, index) => (foodItem.id = id)
+  //   );
+  // };
   return (
     <>
       <div className="food-items">
@@ -25,9 +30,9 @@ export default function FoodItems() {
             <article
               key={id}
               className="food-item"
-              onClick={(e) => viewCartModel(e,id)}
+              onClick={(e) => viewCartModel(e, id,name)}
             >
-              <img src={url} width="200px" height="120px" alt={image.jpeg} />
+              <img src={url} width="250px" height="150px" alt={image.jpeg} />
               <h2 className="foodname">{name}</h2>
               <p className="foodprice">{price}</p>
               <div className="btn-contain">
@@ -48,7 +53,7 @@ export default function FoodItems() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <OrderSummary />
+        <OrderSummary cart={cart}/>
       </Modal>
     </>
   );

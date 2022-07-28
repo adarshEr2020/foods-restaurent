@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 export default function Login() {
@@ -7,7 +8,7 @@ export default function Login() {
     name: "",
     password: "",
   });
-
+const navigate = useNavigate();
   console.log(user);
   const handleChange = (e) => {
     e.preventDefault();
@@ -18,6 +19,7 @@ export default function Login() {
   const loginUser = (e) => {
     e.preventDefault();
     if (user.name !== "" && user.password !== "") {
+      navigate("/main")
       setIsLogin(false);
     } else {
       setIsLogin(true);

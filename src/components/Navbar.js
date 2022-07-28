@@ -11,7 +11,7 @@ const Navbar = () => {
           <img
             src={RestaurentLogo}
             alt="restaurent.svg"
-            style={{ color: "white" }}
+            style={{ backgr: "white" }}
           />
           <h2 className="logo-text">Food's Restaurent</h2>
         </div>

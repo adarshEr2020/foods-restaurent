@@ -33,7 +33,7 @@
 .minus {
   background-color: #f50057;
 }
-.minus:active {
+button:active {
   background-color: #babbc3;
 }
 
