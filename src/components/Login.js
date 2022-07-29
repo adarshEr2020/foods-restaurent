@@ -8,8 +8,7 @@ export default function Login() {
     name: "",
     password: "",
   });
-const navigate = useNavigate();
-  console.log(user);
+  const navigate = useNavigate();
   const handleChange = (e) => {
     e.preventDefault();
     setUser({ [e.target.name]: e.target.value });
@@ -19,7 +18,7 @@ const navigate = useNavigate();
   const loginUser = (e) => {
     e.preventDefault();
     if (user.name !== "" && user.password !== "") {
-      navigate("/main")
+      navigate("/main");
       setIsLogin(false);
     } else {
       setIsLogin(true);

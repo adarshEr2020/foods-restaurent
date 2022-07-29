@@ -1,4 +1,4 @@
-import React, { useContext, useReducer} from "react";
+import React, { useContext, useReducer } from "react";
 import data from "../data/foods.json";
 import { imageURl } from "../data/imageURL";
 
@@ -36,19 +36,52 @@ const cartReducer = (state, action) => {
       return state;
   }
 };
+
+const foodReducer = (state, action) => {
+  switch (action?.type) {
+    case "INCR-FOOD-QUANTITY-TO-CART": {
+      let updatedFoodList = state?.map((item) => {
+        return item?.id === action?.payload?.id
+          ? { ...item, quantityToCart: item?.quantityToCart + 1 }
+          : item;
+      });
+      return updatedFoodList;
+    }
+    case "DECR-FOOD-QUANTITY-TO-CART": {
+      let updatedFoodList = state?.map((item) => {
+        return item?.id === action?.payload?.id
+          ? { ...item, quantityToCart: item?.quantityToCart - 1 }
+          : item;
+      });
+      return updatedFoodList;
+    }
+    case "RESET-FOOD": {
+      let updatedFoodList = state?.map((item) => {
+        return { ...item, quantityToCart: 0 };
+      });
+      return updatedFoodList;
+    }
+    default:
+      return state;
+  }
+};
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const initialCart = [];
   const [cartList, dispatchCart] = useReducer(cartReducer, initialCart);
-  
-  const foodList = data.map((item, index) => {
-    return { ...item, url: imageURl[index] };
-  });
+
+  const initialFoodList =
+    data.map((item, index) => {
+      return { ...item, url: imageURl[index], quantityToCart: 0 };
+    }) || [];
+
+  const [foodList, dispatchFood] = useReducer(foodReducer, initialFoodList);
   return (
     <AppContext.Provider
       value={{
         foodList,
+        dispatchFood,
         cartList,
         dispatchCart,
       }}

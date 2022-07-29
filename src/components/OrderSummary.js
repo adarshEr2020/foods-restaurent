@@ -7,9 +7,10 @@ import { useGlobalContext } from "../context/context";
 
 export default function OrderSummary({ onClose }) {
   const {
+    // foodList,
+    dispatchFood,
     cartList,
     dispatchCart,
-    // total
   } = useGlobalContext();
 
   const navigate = useNavigate();
@@ -28,13 +29,18 @@ export default function OrderSummary({ onClose }) {
   }, [cartList]);
 
   const addToCart = (item) => {
-    const foodItem = cartList?.find((cartItem) => cartItem?.id === item.id);
+    let foodItem = cartList?.find((cart) => cart?.id === item.id);
     if (!foodItem) {
       dispatchCart({ type: "ADD-TO-CART", payload: { ...item, quantity: 1 } });
+      dispatchFood({
+        type: "INCR-FOOD-QUANTITY-TO-CART",
+        payload: { id: item?.id },
+      });
     } else {
-      dispatchCart({
-        type: "INCR-FOOD-QUANTITY",
-        payload: { id: foodItem?.id },
+      dispatchCart({ type: "INCR-FOOD-QUANTITY", payload: { id: item?.id } });
+      dispatchFood({
+        type: "INCR-FOOD-QUANTITY-TO-CART",
+        payload: { id: item?.id },
       });
     }
   };
@@ -47,8 +53,16 @@ export default function OrderSummary({ onClose }) {
         type: "DECR-FOOD-QUANTITY",
         payload: { id: foodItem?.id },
       });
+      dispatchFood({
+        type: "DECR-FOOD-QUANTITY-TO-CART",
+        payload: { id: foodItem?.id },
+      });
     } else if (foodItem && foodItem?.quantity === 1) {
       dispatchCart({ type: "DELETE-TO-CART", payload: { id: foodItem?.id } });
+      dispatchFood({
+        type: "DECR-FOOD-QUANTITY-TO-CART",
+        payload: { id: foodItem?.id },
+      });
     }
   };
   return (
@@ -77,7 +91,7 @@ export default function OrderSummary({ onClose }) {
 
       <p className="food-total">
         Total(INR):{""}
-        <span style={{ fontWeight: "bolder" }}>{total}</span>
+        <span style={{ fontWeight: "bolder" }}> {total}</span>
       </p>
 
       <div className="save-checkout-btn">

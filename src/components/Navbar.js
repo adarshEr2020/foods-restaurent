@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../components/Navbar.css";
-import RestaurentLogo from "../assets/restaurant_24px.svg";
+import RestaurentLogo from "../assets/restaurant_48px.svg";
 import OrderSummary from "./OrderSummary";
 import Modal from "@mui/material/Modal";
 
@@ -13,11 +13,7 @@ const Navbar = () => {
       <div className="nav-title">
         <header className="navbar">
           <div className="navbar-title">
-            <img
-              src={RestaurentLogo}
-              alt="restaurent.svg"
-              style={{ backgr: "white" }}
-            />
+            <img src={RestaurentLogo} alt="restaurent.svg" className="logo" />
             <h2 className="logo-text">Food's Restaurent</h2>
           </div>
 
