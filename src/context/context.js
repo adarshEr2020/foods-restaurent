@@ -1,65 +1,56 @@
-import React, { useState, useContext } from "react";
+import React, { useContext, useReducer,useState,useEffect } from "react";
 import data from "../data/foods.json";
 import { imageURl } from "../data/imageURL";
-import { useNavigate } from "react-router-dom";
 
+const cartReducer = (state, action) => {
+  switch (action.type) {
+    case "ADD-TO-CART": {
+      return [...state, action?.payload];
+    }
+    case "INCR-FOOD-QUANTITY": {
+      let updatedCart = state?.map((item) => {
+        return item?.id === action?.payload?.id
+          ? { ...item, quantity: item?.quantity + 1 }
+          : item;
+      });
+      return updatedCart;
+    }
+    case "DECR-FOOD-QUANTITY": {
+      let updatedCart = state?.map((item) => {
+        return item?.id === action?.payload?.id
+          ? { ...item, quantity: item?.quantity - 1 }
+          : item;
+      });
+      return updatedCart;
+    }
+    case "DELETE-TO-CART": {
+      let updatedCart = state?.filter((item) => {
+        return item?.id !== action?.payload?.id;
+      });
+      return updatedCart;
+    }
+    case "RESET-CART": {
+      return [];
+    }
+    default:
+      return state;
+  }
+};
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  // const navigate = useNavigate();
-
-  // eslint-disable-next-line
-  const allFoodItem = data.map((foodItem, index) => {
-    return { ...foodItem, url: imageURl[index] };
+  const initialCart = [];
+  const [cartList, dispatchCart] = useReducer(cartReducer, initialCart);
+  
+  const foodList = data.map((item, index) => {
+    return { ...item, url: imageURl[index] };
   });
-  const [cart, setCart] = useState([]);
-  // const [quantity, setQuantity] = useState(0);
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  console.log(cart);
-
-  const handleAddQuantity = () => {
-    // if (quantity >= 0) {
-    //   setQuantity(quantity + 1);
-    // }
-  };
-  const handleSubtractQuantity = () => {
-    // if (quantity >= 1) {
-    //   setQuantity(quantity - 1);
-    // }
-  };
-
-  const viewCartModel = (e, id, name) => {
-    e.preventDefault();
-    let foodItems = allFoodItem.find((item) => {
-      return item.id === id;
-    });
-    let temp = [...cart, { ...foodItems, quantity: 1 }];
-    console.log("temp", temp);
-    setCart(temp);
-
-    handleOpen();
-  };
-
-  // const handleNavigate = (path) => {
-  //   navigate(path);
-  // };
-
   return (
     <AppContext.Provider
       value={{
-        handleAddQuantity,
-        handleSubtractQuantity,
-        allFoodItem,
-        open,
-        handleOpen,
-        handleClose,
-        viewCartModel,
-        cart,
-        // navigate,
-        // handleNavigate,
+        foodList,
+        cartList,
+        dispatchCart,
       }}
     >
       {children}
