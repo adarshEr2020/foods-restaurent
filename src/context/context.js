@@ -1,4 +1,4 @@
-import React, { useContext, useReducer,useState,useEffect } from "react";
+import React, { useContext, useReducer} from "react";
 import data from "../data/foods.json";
 import { imageURl } from "../data/imageURL";
 
