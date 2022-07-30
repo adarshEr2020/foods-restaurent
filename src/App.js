@@ -1,6 +1,6 @@
 import "./App.css";
 import { AppProvider } from "./context/context";
-import Routers from "./routers/Router";
+import Routers from "./routers/Routers";
 function App() {
   return (
     <div className="App">
